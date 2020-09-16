@@ -1,6 +1,6 @@
-module github.com/swaggo/http-swagger
+module github.com/devplayer0/http-swagger
 
-go 1.13
+go 1.15
 
 require (
 	github.com/go-chi/chi v4.0.2+incompatible

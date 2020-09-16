@@ -1,4 +1,4 @@
-package httpSwagger
+package httpswagger
 
 import (
 	"html/template"
@@ -19,6 +19,7 @@ type Config struct {
 	DeepLinking  bool
 	DocExpansion string
 	DomID        string
+	PersistAuth  bool
 }
 
 // URL presents the url pointing to API definition (normally swagger.json or swagger.yaml).
@@ -46,6 +47,13 @@ func DocExpansion(docExpansion string) func(c *Config) {
 func DomID(domID string) func(c *Config) {
 	return func(c *Config) {
 		c.DomID = domID
+	}
+}
+
+// PersistAuth true, false
+func PersistAuth(persistAuth bool) func(c *Config) {
+	return func(c *Config) {
+		c.PersistAuth = persistAuth
 	}
 }
 
@@ -171,6 +179,7 @@ window.onload = function() {
     deepLinking: {{.DeepLinking}},
     docExpansion: "{{.DocExpansion}}",
     dom_id: "{{.DomID}}",
+    persistAuthorization: {{.PersistAuth}},
     validatorUrl: null,
     presets: [
       SwaggerUIBundle.presets.apis,

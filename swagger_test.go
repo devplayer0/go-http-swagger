@@ -1,13 +1,13 @@
-package httpSwagger
+package httpswagger
 
 import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
 
+	_ "github.com/devplayer0/http-swagger/example/go-chi/docs"
 	"github.com/go-chi/chi"
 	"github.com/stretchr/testify/assert"
-	_ "github.com/swaggo/http-swagger/example/go-chi/docs"
 )
 
 func TestWrapHandler(t *testing.T) {
